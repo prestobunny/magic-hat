@@ -1,0 +1,67 @@
+/*
+ * General
+ *
+ * Description: Styles for basic HTML elements and site structure.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+html {
+	direction: ltr;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+}
+
+/* Anchors footer to bottom of the page regardless of content height */
+.site {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	.site__content {
+		flex: 1;
+
+		.content-secondary {
+			margin-top: 3rem;
+		}
+	}
+
+	&.boxed {
+		margin: 0 auto;
+		max-width: $size__boxed-width;
+	}
+}
+
+.header__banner,
+.site__content,
+.site__footer {
+	padding: 1em;
+}
+
+.header-bg {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.branding__title {
+	margin-right: 1rem;
+}
+
+.clear::after,
+.entry__content::after,
+.comment__content::after,
+.site__header::after,
+.site__content::after,
+.site__footer::after {
+	clear: both; // Because WordPress lives in the 1800s
+}

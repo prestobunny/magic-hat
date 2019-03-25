@@ -1,0 +1,9 @@
+# NPM/Gulp
+node_modules
+
+# Woocommerce
+assets/sass/shop
+inc/woocommerce.php
+
+# Event plugin
+template-parts/content-event.php

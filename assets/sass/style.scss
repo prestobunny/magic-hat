@@ -1,0 +1,50 @@
+/**
+ * Style
+ *
+ * This file gets compiled into the theme's actual styles and saved under
+ * assets/css/style.min.css. See style.css in the main directory for declaration
+ * of theme properties.
+ *
+ * Description: Imports all the scss files needed for the stylesheet.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+@import "variables/mixins";
+
+@import "variables/skin";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "layout/general";
+
+@import "layout/menus";
+
+@import "layout/posts-and-pages";
+
+@import "layout/widgets";
+
+/*--------------------------------------------------------------
+# Modules (Basic)
+--------------------------------------------------------------*/
+@import "modules/typography";
+
+@import "modules/media";
+
+@import "modules/forms";
+
+/*--------------------------------------------------------------
+# Modules (Extra)
+--------------------------------------------------------------*/
+@import "modules/blocks";
+
+@import "modules/lightbox";
+
+@import "modules/player";
+
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+@import "layout/responsive";

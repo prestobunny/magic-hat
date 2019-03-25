@@ -1,0 +1,57 @@
+/*
+ * Widgets
+ *
+ * Description: Styles related to built-in widgets.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+/* Widget next to the site logo. */
+.banner-widget {
+	margin: 0 1rem;
+}
+
+.widget {
+	margin: 0 0 1rem;
+
+	select {
+		max-width: 100%; // Make sure select elements fit in widgets.
+	}
+}
+
+.calendar_wrap {
+	margin: 0 auto;
+	max-width: 300px;
+	padding: 1rem;
+
+	#wp-calendar {
+		margin: 0;
+
+		#prev,
+		#next {
+			a {
+				padding: 0 0.2rem;
+				display: inline-block;
+				margin-top: 1rem;
+				font-weight: 300;
+			}
+		}
+	}
+}
+
+
+.rss-widget-icon {
+	display: none;
+}
+
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_recent_comments,
+.widget_recent_entries {
+	ul {
+
+		// Remove margin when a list is the only element of a widget
+		margin: 0;
+	}
+}

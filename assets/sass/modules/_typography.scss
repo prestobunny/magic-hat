@@ -1,0 +1,296 @@
+/*
+ * Typography
+ *
+ * Line-heights, margins, etc. for text on the site.
+ *
+ * Description: Defines the styles for font spacing, mostly.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+/* ---------------------
+ * CONTENTS:
+ * =General
+ * =Headings
+ * =Copy
+ * =Jetpack
+--------------------- */
+
+//* ===== General ==== *//
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	-ms-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
+	word-wrap: break-word;
+}
+
+//* ==== Headings ==== *//
+
+.site__title {
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.site__desc {
+	margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+	margin: 0;
+}
+
+h1 + h2,
+h2 + h3 {
+	padding-top: 0;
+}
+
+hgroup {
+	display: block;
+}
+
+
+//* ====== Copy ====== *//
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+	transition: all 0.3s;
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.accessible-links {
+	a {
+		text-decoration: underline;
+	}
+
+	.site__title {
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+abbr,
+acronym {
+	cursor: help;
+	letter-spacing: 0.1em;
+}
+
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline dotted;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+b,
+strong {
+	font-weight: 500;
+}
+
+blockquote {
+	text-align: center;
+
+	cite {
+		display: block;
+		margin-bottom: 1rem;
+
+		&::before {
+			content: "\2014"; // A big dash before quote citations.
+			margin-right: 1rem;
+		}
+	}
+}
+
+br {
+	margin-bottom: 0; // Clear margin for line breaks
+}
+
+em,
+i {
+	font-style: italic;
+	position: relative;
+	vertical-align: baseline;
+}
+
+ol,
+ul {
+	padding-left: 1.6rem;
+}
+
+li > ul,
+li > ol {
+	padding-left: 2rem;
+}
+
+/* Who puts a figure in a list item? WordPress does, that's who. */
+li > figure {
+	margin: 0 0 1rem;
+}
+
+table {
+	border-collapse: collapse; // Combine borders of all table children into one.
+	border-spacing: 0;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+[hidden],
+template {
+	display: none; /* Add the correct display in IE 10+. */
+}
+
+/* Inline code */
+code {
+	display: inline-block;
+	line-height: 1.5;
+	padding: 0 0.3rem;
+}
+
+dd {
+	margin: 0 1rem 1em;
+}
+
+details,
+summary {
+	display: block;
+}
+
+dfn {
+	font-style: italic;
+}
+
+dt {
+	font-weight: 500;
+}
+
+ins,
+mark {
+	text-decoration: none;
+}
+
+/* Makes it look like a grey keyboard button! */
+kbd {
+	background: #eee;
+	border: 1px solid #cecece;
+	border-radius: 0.2em;
+	box-shadow: 1px 1px 1px #d6d6d6, 1px 1px 1px white inset;
+	font-family: inherit;
+	padding: 0 0.5em;
+}
+
+pre {
+	line-height: 1;
+	margin-bottom: 1rem;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1rem;
+}
+
+progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+small {
+	line-height: 0.5;
+	font-size: 0.8rem;
+}
+
+sub,
+sup {
+	font-size: 0.8rem;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.4rem;
+}
+
+sub {
+	bottom: -0.4rem;
+}
+
+hr {
+	background: none;
+	border: 0;
+	height: 30px;
+	margin: 1rem auto;
+	text-align: center;
+
+	&::before {
+		content: "***";
+		letter-spacing: 0.2em;
+	}
+}
+
+p {
+	margin: 1rem 0;
+}
+
+@if $font__indent == true {
+	.entry__content {
+
+		/* Don't indent the first paragraph, otherwise drop-caps might look funny */
+		p + p {
+			text-indent: 1rem;
+		}
+	}
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+
+	&:focus {
+		clip: auto !important;
+		clip-path: none;
+		display: block;
+		height: auto;
+		left: 5px;
+		padding: 0.8rem 1rem;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; // Above WP toolbar.
+	}
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+div.sharedaddy h3.sd-title {
+	font-size: ms(3) !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+}

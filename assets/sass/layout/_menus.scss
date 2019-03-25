@@ -1,0 +1,203 @@
+/*
+ * Menus
+ *
+ * Description: Styles for nav menus.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+$size__nav-spacing: 1;
+
+.nav__list {
+	display: flex;
+	padding: 0;
+	width: 100%;
+
+	a {
+		padding: 0.5rem;
+		text-decoration: none;
+	}
+}
+
+.nav__grid {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav__list-h,
+.nav__list-desktop-h {
+	flex-wrap: wrap;
+	margin: 0;
+
+	a {
+		display: block; // Allow padding
+		text-decoration: none;
+	}
+
+	li {
+		list-style: none;
+	}
+}
+
+.nav__list-desktop-h {
+	display: block;
+}
+
+.nav-top {
+	.nav__list {
+		justify-content: flex-end; // Topbar on the right side.
+	}
+}
+
+/* Toggle button for main menu on mobile. */
+.nav-main__toggle {
+	border: 0;
+	padding: 0;
+
+	&:hover,
+	&:focus {
+		outline: 0;
+	}
+}
+
+.nav-main {
+	a:focus {
+		outline: 0;
+	}
+
+	.menu-item {
+		a {
+			padding: 0.5rem #{$size__nav-spacing + "rem"};
+		}
+	}
+
+	.sub-menu {
+		display: block; // Show drop-down vertically underneath.
+		padding: 0;
+
+		.menu-item {
+			a {
+				padding-left: #{$size__nav-spacing * 2 + "em"};
+			}
+
+			.sub-menu {
+				.menu-item {
+					a {
+						padding-left: #{$size__nav-spacing * 4 + "em"};
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav-breadcrumbs {
+	.nav-breadcrumbs__item {
+
+		/* .nav-breadcrumbs__item-first and .nav-breadcrumbs__item-last can be used
+		to target the first and last items in the breadcrumb trail, respectively. */
+		align-items: center;
+		display: flex; // Display flex with the separator.
+
+		&.nav-breadcrumbs__item-last {
+			padding: 0.5rem;
+		}
+
+		&:not(.nav-breadcrumbs__item-last)::after {
+			content: $font__breadcrumb-sep;
+		}
+	}
+}
+
+/* Next/Previous posts */
+.nav-adjacent {
+	.adjacent-item {
+		flex: 0 0 50%;
+		padding: 0 1rem;
+
+		.adjacent-item__title::before,
+		.adjacent-item__title::after {
+			font-size: 0.8em; // Relative to parent
+		}
+
+		.adjacent-item__meta {
+			font-size: 0.8em; // Relative to parent
+			margin: 0;
+		}
+	}
+
+	.adjacent-item-prev {
+		text-align: right;
+
+		.adjacent-item__heading {
+			text-align: left;
+		}
+
+		.adjacent-item__title::before {
+			content: "\2770"/*rtl:""*/;
+			margin-right: 0.5rem/*rtl:0*/;
+		}
+
+		.adjacent-item__title::after {
+			content: ""/*rtl:"\2771"*/;
+			margin-left: 0/*rtl:.5rem*/;
+		}
+	}
+
+	.adjacent-item-next {
+		text-align: left;
+
+		.adjacent-item__heading {
+			text-align: right;
+		}
+
+		.adjacent-item__title::before {
+			content: ""/*rtl:"\2770"*/;
+			margin-right: 0/*rtl:.5rem*/;
+		}
+
+		.adjacent-item__title::after {
+			content: "\2771"/*rtl:""*/;
+			margin-left: 0.5rem/*rtl:0*/;
+		}
+	}
+}
+
+.nav-posts,
+.nav-post {
+	margin-bottom: 0.5em;
+
+	a,
+	span {
+		&:not(:last-child) {
+			margin-right: 0.5em;
+		}
+	}
+}
+
+.nav-post {
+	.post-page-prev {
+		a::before {
+			content: "\003C";
+			font-size: 0.8em;
+			margin-right: 0.5em;
+		}
+	}
+
+	.post-page-next {
+		a::after {
+			content: "\003E";
+			font-size: 0.8em;
+			margin-left: 0.5em;
+		}
+	}
+}
+
+.nav-comments {
+	text-align: center;
+
+	.page-numbers {
+		display: inline-block;
+		padding: 0.1em 0.4em 0.05em;
+	}
+}

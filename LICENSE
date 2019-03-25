@@ -1,0 +1,72 @@
+Magic Hat is licensed under GNU GPL v3 or later.
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+================================================================================
+
+Magic Hat also incorporates code from the following third-
+party libraries, whose licenses can be found below:
+
+_s by Automattic
+Available under GNU GPL v2 or later
+https://underscores.me/
+https://www.gnu.org/licenses/gpl-2.0.html
+
+Breadcrumb Trail v1.1.0 by the man, the myth, the legend, Justin Tadlock
+Available under GNU GPL v2 or later
+https://github.com/justintadlock/breadcrumb-trail
+https://www.gnu.org/licenses/gpl-2.0.html
+
+Customizer Custom Controls v1.0.4 by Anthony Hortin
+Available under GNU GPL v2 or later
+https://github.com/maddisondesigns/customizer-custom-controls
+https://www.gnu.org/licenses/gpl-2.0.html
+
+Gutenberg Framework v0.4.7 by Fabien Sa
+Available under the MIT License
+https://github.com/BafS/Gutenberg
+https://opensource.org/licenses/MIT
+
+HTML5 Shiv v3.7.3 by Alexander Farkas
+Available under the MIT License
+https://github.com/aFarkas/html5shiv
+https://opensource.org/licenses/MIT
+
+iconmonstr icons by Alexander Kahlkopf
+Available under the iconmonstr License Agreement
+https://iconmonstr.com/about/
+https://iconmonstr.com/license/
+
+ModularScale Sass Plugin v3.0.9 by Scott Kellum, Adam Stacovia and Mason Wendell
+Available under the MIT License
+https://github.com/modularscale/modularscale-sass
+https://opensource.org/licenses/MIT
+
+Newline-RTL.svg by OOjs UI Team and other contributors
+Available under the MIT License
+https://doc.wikimedia.org/oojs-ui/master/demos/?page=icons&direction=rtl
+https://opensource.org/licenses/MIT
+
+Normalize v8.0.0 by Nicolas Gallagher and Jonathan Neal
+Available under the MIT License
+https://github.com/necolas/normalize.css/
+https://opensource.org/licenses/MIT
+
+Swipebox v1.4.4 by Constantin Saguin
+Available under the MIT License
+https://github.com/brutaldesign/swipebox
+https://opensource.org/licenses/MIT
+
+Writr Template for DokuWiki v2016-05-02 by Anika Henke
+Available under GNU GPL v2 or later
+https://github.com/selfthinker/dokuwiki_template_writr
+https://www.gnu.org/licenses/gpl-2.0.html

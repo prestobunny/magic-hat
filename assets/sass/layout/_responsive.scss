@@ -1,0 +1,198 @@
+/*
+ * Responsive Styles
+ *
+ * Description: Most media queries go here. See also the Skin and Blocks files.
+ * Version: 1.0.0
+ * License: GPL 3.0 or later
+ */
+
+/* Nav menu switches to desktop version. */
+@media screen and (min-width: 600px) {
+	.nav__list-desktop-h {
+		display: flex !important;
+	}
+
+	.nav-top,
+	.nav-main {
+		padding: 0 2rem;
+	}
+
+	.nav-main__toggle {
+		display: none;
+	}
+
+	.sub-menu-focused {
+		display: block;
+		left: 0;
+		top: 100%;
+	}
+
+	.nav-main {
+		.menu-item {
+			position: relative; // Anchor absolute-positioned sub-menus
+
+			a {
+				padding: 0.5rem;
+			}
+
+			&:hover {
+				.sub-menu {
+					@extend .sub-menu-focused;
+				}
+			}
+		}
+
+		.sub-menu {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			position: absolute;
+			left: -999em;
+			z-index: 99999;
+
+			a {
+				width: 200px;
+			}
+
+			&:focus-within {
+				@extend .sub-menu-focused;
+			}
+
+			.menu-item {
+				a {
+					padding-left: #{$size__nav-spacing + "em"};
+				}
+
+				/* Third menu level */
+				.sub-menu {
+					left: 0;
+					top: 100%;
+					width: 100%;
+
+					.menu-item {
+						a {
+							padding-left: #{$size__nav-spacing * 2 + "rem"};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.comment__footer {
+		grid-template-columns: 3fr 2fr;
+	}
+
+	.comment-form-info {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 0.4rem;
+	}
+
+	.swipebox-arrows {
+		width: 500px;
+	}
+}
+
+@media screen and (min-width: 690px) {
+	.alignleft,
+	.alignright {
+		max-width: 50%;
+	}
+
+	.gallery-col-2 {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.gallery-col-3 {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.gallery-col-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.gallery-col-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	.gallery-col-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.gallery-col-7 {
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	.gallery-col-8 {
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	.gallery-col-9 {
+		grid-template-columns: repeat(9, 1fr);
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.nav-desktop-h {
+		margin: 0 auto;
+		max-width: 95%;
+	}
+}
+
+@media screen and (min-width: 930px) {
+	.header__banner,
+	.site__content,
+	.site__footer {
+		padding: 2rem;
+	}
+
+	.header__banner,
+	.site__footer {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.banner-branding {
+		flex: 0 0 $size__header-title-width;
+	}
+
+	.banner-widget {
+		flex: 0 0 (100% - $size__header-title-width);
+	}
+
+	.site__content {
+		display: flex;
+		justify-content: space-between;
+
+		.content-primary {
+			flex: 0 0 #{100% - $size__content-sidebar-padding - $size__sidebar-width};
+		}
+
+		.content-secondary {
+			height: 100%;
+			overflow: hidden;
+			flex: 0 0 $size__sidebar-width;
+			margin-top: 0; // Remove margin set when sidebar goes underneath
+		}
+
+		.sidebar-left {
+			order: -1;
+		}
+	}
+
+	.site__footer {
+		clear: both;
+		margin: 0 auto;
+
+		.footer__info {
+			flex: 0 0 $size__footer-title-width;
+		}
+
+		.footer__widget {
+			display: flex;
+			flex: 0 0 (100% - $size__footer-title-width);
+			justify-content: flex-end;
+		}
+	}
+}
