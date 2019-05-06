@@ -26,10 +26,15 @@ body {
 .site {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: 100vh;
 
 	.site__content {
 		flex: 1;
+
+		.content-primary,
+		.content-secondary {
+			min-width: 0; // https://bugzilla.mozilla.org/show_bug.cgi?id=1108514
+		}
 
 		.content-secondary {
 			margin-top: 3rem;

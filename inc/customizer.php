@@ -70,7 +70,8 @@ function magic_hat_support_customizer() {
 
 	/**
 	 * Custom header upload
-	 * @link https://developer.wordpress.org/themes/functionality/custom-headers/
+	 * @link https://developer.wordpress.org/themes/functionality/custom-headers
+	 * @todo custom header color
 	 */
 	add_theme_support( 'custom-header', apply_filters( 'magic_hat_custom_header_args', array(
 		'default-image' => '',

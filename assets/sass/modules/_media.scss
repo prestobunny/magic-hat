@@ -66,8 +66,6 @@ a img {
 }
 
 svg {
-	vertical-align: middle;
-
 	&:not(:root) {
 		overflow: hidden; // Correct overflow not hidden in IE 9/10/11.
 	}

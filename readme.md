@@ -51,15 +51,6 @@ You can also make a Magic Hat child theme. Making a child theme offers more robu
 */
 ```
 Only the first two lines are necessary. Edit the items in brackets to suit your new theme.
-1. Make a file called <code>functions.php</code> in your child theme folder.
-1. Open <code>functions.php</code> and add the following:
-```
-<?php
-function [your_theme_slug]_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/assets/css/style.min.css' );
-}
-add_action( 'wp_enqueue_scripts', '[your_theme_slug]_enqueue_styles' );
-```
 1. Activate your child theme in WordPress.
 
 Now you should be able to add styles as necessary to <code>style.css</code>. Place any new functions you want to add (or pluggable functions you want to replace) in <code>functions.php</code>. To replace any template files you don't like, just create a file of the same name in your child theme folder.
@@ -79,6 +70,7 @@ It also has a <code>package.json</code> flie configured for use with Stylelint 9
 PHP files are set up to work with PHP_CodeSniffer 3.3.1+ using the WPThemeReview standard 0.1.0.
 
 ## Todo
+- Screenshot
 - Post formats plugin
 - Ajax for delete/spam/edit comment buttons
 - Author bios after post
@@ -86,6 +78,7 @@ PHP files are set up to work with PHP_CodeSniffer 3.3.1+ using the WPThemeReview
 - (Jetpack) Customizer option to change where sharing buttons are displayed (above or below post)
 - (Jetpack) Infinite scrolling
 - Woocommerce support
+- Option to hide the "last updated" date on posts
 
 ## License
 GNU GPL 3.0 or later; see LICENSE for third-party libraries used.

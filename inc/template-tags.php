@@ -37,6 +37,10 @@ if ( ! function_exists( 'magic_hat_entry_header' ) ) :
  * @param int $id			The ID of the post to use in ID attributes. Default get_the_ID().
  */
 function magic_hat_entry_header( $title = null, $id = null ) {
+	if ( is_front_page() ) {
+		return;
+	}
+	
 	$title = $title ?: get_the_title();
 	$id = $id ?: get_the_id();
 
