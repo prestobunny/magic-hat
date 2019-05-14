@@ -58,10 +58,6 @@ body {
 	background: #fff;
 }
 
-.site__header {
-	background: #0ef3d3;
-}
-
 /* Color of the "short line" hr style in Gutenberg */
 .wp-block-separator:not(.is-style-dots) {
 	background: #8c8c8c;
@@ -101,14 +97,13 @@ $color__site-title: #000;
 	box-shadow: 1px 1px 10px #f3f3f3;
 }
 
-$color__nav-main-link-bg: #fff;
+$color__nav-main-link-bg: #000;
 
 .nav-main {
-	background: #241615;
+	background: #dadada;
 
 	a {
 		color: $color__nav-main-link-bg;
-		text-shadow: -2px -2px 5px rgba(159, 21, 255, 0.8), 2px 2px 5px rgba(0, 228, 255, 0.8), -2px 2px 5px rgba(255, 0, 0, 0.8), 2px -2px 5px rgba(255, 167, 35, 0.8);
 
 		&:hover,
 		&:focus,
@@ -246,11 +241,6 @@ magic_hat_sticky_ribbon() in Template Tags to edit the ribbon text. */
 		}
 	}
 }
-
-.site__footer {
-	background: url("../img/city.jpg");
-}
-
 
 //* === Typography === *//
 
@@ -569,10 +559,6 @@ input[type="submit"] {
 		font-size: 0.8rem;
 		text-decoration: none;
 	}
-}
-
-.site__footer {
-	color: white;
 }
 
 //* ====== SVG ====== *//
