@@ -37,10 +37,10 @@ if ( ! function_exists( 'magic_hat_entry_header' ) ) :
  * @param int $id			The ID of the post to use in ID attributes. Default get_the_ID().
  */
 function magic_hat_entry_header( $title = null, $id = null ) {
-	if ( is_front_page() ) {
+	if ( is_front_page() && get_option( 'show_on_front' ) == 'page' ) {
 		return;
 	}
-	
+
 	$title = $title ?: get_the_title();
 	$id = $id ?: get_the_id();
 
@@ -223,8 +223,8 @@ endif;
 
 if ( ! function_exists( 'magic_hat_content_excerpt' ) ) :
 /**
- * Echoes the post content or the excerpt of the post depending on whether the current
- * page is a singular or archive view.
+ * Echoes the post content or the excerpt of the post depending on whether the
+ * current page is a singular or archive view.
  *
  * @see the_content
  * @see the_excerpt
@@ -237,21 +237,17 @@ function magic_hat_content_excerpt() {
 		the_content();
 		magic_hat_link_pages();
 	} else {
+        $readmore = esc_html__( 'Read More' );
 		/* Use custom excerpt if the user added a <!-- more --> tag */
 		if ( strpos( $post->post_content, '<!--more-->' ) ) {
-			the_content( sprintf( wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'magic-hat' ),
-				array( 'span' => array( 'class' => array() ) ) ),
-				get_the_title()
-			) );
-		}
-		else {
+			the_content( $readmore );
+		} else {
 			the_excerpt();
+			/* translators: %s is the post title. */
+			echo ' <a class="more-link" href="' . get_the_permalink() . '" aria-label="' . sprintf( esc_html__( 'Continue reading %s' ), get_the_title() ) . '">' . $readmore . '</a>';
 		}
 	}
 }
-endif;
 
 if ( ! function_exists( 'magic_hat_paginate_links' ) ) :
 /**
