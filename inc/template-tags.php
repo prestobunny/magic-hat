@@ -2,7 +2,8 @@
 /**
  * Custom template tags for this theme
  *
- * Eventually, some of the functionality here could be replaced by core features. Optimism!
+ * Eventually, some of the functionality here could be replaced by core
+ * features. Optimism is a helluva drug!
  *
  * @package Magic Hat
  * @subpackage Includes
@@ -27,14 +28,15 @@ endif;
 
 if ( ! function_exists( 'magic_hat_entry_header' ) ) :
 /**
- * Prints the post title wrapped in the appropriate heading/link tags depending on whether
- * the current view is in an archive or a singular context.
+ * Prints the post title wrapped in the appropriate heading/link tags depending
+ * on whether the current view is in an archive or a singular context.
  *
  * @since 1.0.0
  *
- * @param string $title		The title to wrap in tags. Default is post title returned by
- * 							{@see get_the_title}.
- * @param int $id			The ID of the post to use in ID attributes. Default get_the_ID().
+ * @param string $title		The title to wrap in tags. Default is post title
+ * 							returned by {@see get_the_title}.
+ * @param int $id			The ID of the post to use in ID attributes. Default
+ * 							get_the_ID().
  */
 function magic_hat_entry_header( $title = null, $id = null ) {
 	if ( is_front_page() && get_option( 'show_on_front' ) == 'page' ) {
@@ -72,8 +74,8 @@ if ( ! function_exists( 'magic_hat_get_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time.
  *
- * @return string	HTML output with post date and optionally comment number, permalink,
- * 					and category.
+ * @return string	HTML output with post date and optionally comment number,
+ * 					permalink, and category.
  */
 function magic_hat_get_entry_meta() {
 	$posted = sprintf( '<time datetime="%1$s">%2$s</time>',
@@ -135,9 +137,10 @@ endif;
 
 if ( ! function_exists( 'magic_hat_sticky_ribbon' ) ) :
 /**
- * Prints the markup for a corner ribbon that says "Featured" on sticky posts. If you
- * remove this element without replacing it with some form of visual sticky post
- * distinction, remember to remove "sticky-posts" from the theme tags in style.css.
+ * Prints the markup for a corner ribbon that says "Featured" on sticky posts.
+ * If you remove this element without replacing it with some form of visual
+ * sticky post distinction, remember to remove "sticky-posts" from the theme
+ * tags in style.css.
  *
  * @since 1.0.0
  */
@@ -248,13 +251,16 @@ function magic_hat_content_excerpt() {
 		}
 	}
 }
+endif;
 
 if ( ! function_exists( 'magic_hat_paginate_links' ) ) :
 /**
- * Prints {@see paginate_links} with disabled versions of the previous/next links on the
- * first and last pages, respectively, and echoes the result. It also adds aria labels.
+ * Prints {@see paginate_links} with disabled versions of the previous/next
+ * links on the first and last pages, respectively, and echoes the result. It
+ * also adds aria labels.
  *
- * Feel free to plug your own function instead if you don't like this one. You can use
+ * Feel free to plug your own function instead if you don't like this one. You
+ * can use
  *
  *    function magic_hat_paginate_links( $args = array(), $type = 'posts) {
  *        if ( $type == 'posts' ) {
@@ -264,8 +270,8 @@ if ( ! function_exists( 'magic_hat_paginate_links' ) ) :
  *        }
  *    }
  *
- * ... or something similar to use the default WordPress pagination without having to
- * override the template files that call this function.
+ * ... or something similar to use the default WordPress pagination without
+ * having to override the template files that call this function.
  *
  * @since 1.0.0
  * @todo Single post pagination?
@@ -275,8 +281,8 @@ if ( ! function_exists( 'magic_hat_paginate_links' ) ) :
  * @see paginate_comments_links
  *
  * @param array $args
- * @param string $type	What the pages are for. Default 'posts'. Accepts 'posts', 'post',
- * 						or 'comments'.
+ * @param string $type	What the pages are for. Default 'posts'. Accepts
+ * 						'posts', 'post', or 'comments'.
  */
 function magic_hat_paginate_links( $args = array(), $type = 'posts' ) {
 	global $wp_query, $wp_rewrite;
@@ -350,8 +356,8 @@ function magic_hat_paginate_links( $args = array(), $type = 'posts' ) {
 endif;
 
 /**
- * Wrapper for {@see human_time_diff} with translatable strings to show a relative
- * timestamp, e.g., '8 hours ago,' which we can use in comments.
+ * Wrapper for {@see human_time_diff} with translatable strings to show a
+ * relative timestamp, e.g., '8 hours ago,' which we can use in comments.
  *
  * @since 1.0.0
  *
@@ -382,11 +388,7 @@ function magic_hat_relative_time( $time ) {
 	$time_strings = apply_filters( 'magic_hat_relative_time_labels', $time_strings );
 	$delta = human_time_diff( $time, current_time( 'timestamp' ) );
 
-	/* translators: wp-includes/formatting.php should have a line (3617 as of version 5.1)
-	that looks like 'sprintf( _n( '%s min', '%s mins', $mins ), $mins )' -- translate the
-	Magic Hat string here to the formatted singular variation, e.g., '1 min'. When WordPress
-	returns this string for results of 60 seconds or less, it will get replaced with 'Just
-	now'. Thanks for reading, I love you! */
+	/* translators: wp-includes/formatting.php should have a line (3617 as of version 5.1) that looks like 'sprintf( _n( '%s min', '%s mins', $mins ), $mins )' -- translate the Magic Hat string here to the formatted singular variation, e.g., '1 min'. When WordPress returns this string for results of 60 seconds or less, it will get replaced with 'Just now'. Thanks for reading, I love you! */
 	if ( strpos( $delta, __( '1 min', 'magic-hat' ) ) !== false ) {
 		return esc_html( $time_strings['now'] );
 	}
@@ -397,18 +399,19 @@ function magic_hat_relative_time( $time ) {
 
 if ( ! function_exists( 'magic_hat_the_posts_navigation' ) ) :
 /**
- * Prints the next/previous posts navigation for single post displays with an added
- * heading above each.
+ * Prints the next/previous posts navigation for single post displays with an
+ * added heading above each.
  *
  * @since 1.0.0
  *
  * @param array $args {
- * 		@type string $prev_title		 The title to show above the previous post.
- * 										 Default is 'Older'.
- * 		@type string $next_title		 The title to show above the next post. Default
- * 										 is 'Newer'.
- * 		@type string $screen_reader_text The screenreader text is now an aria-label on
- * 										 the nav element instead of a hidden h2.
+ * 		@type string $prev_title		 The title to show above the previous
+ * 										 post. Default is 'Older'.
+ * 		@type string $next_title		 The title to show above the next post.
+ * 										 Default is 'Newer'.
+ * 		@type string $screen_reader_text The screenreader text is now an
+ * 										 aria-label on the nav element instead
+ * 										 of a hidden h2.
  * }
  */
 function magic_hat_the_post_navigation( $args = array() ) {
@@ -480,18 +483,22 @@ endif;
  * Prints a list of monthly archive links for the given year.
  *
  * @param array $args {
- * 		@type string $year			  The year to get monthly archives for. Default is the
- * 									  year from the current WP_Query, as this function is
- * 									  intended to be called from yearly archive pages.
- * 		@type string $type			  How to display the monthly links. Default is 'links',
- * 									  which is plain anchor elements. Use 'list' to output
- * 									  them as an ordered list.
- * 		@type bool $full_names		  Whether to show full ("January") or abbreviated ("Jan")
- * 									  month names. Default true.
- * 		@type bool|string $hide_empty Whether to hide archive links for months without any
- * 									  posts. Default true, though you could set it to false
- * 									  if you're concerned about the extra database call. Set
- * 									  to 'disabled' to show unlinked text for empty months.
+ * 		@type string $year			  	The year to get monthly archives for.
+ * 										Default is the year from the current
+ * 										WP_Query, as this function is intended
+ * 										to be called from yearly archive pages.
+ * 		@type string $type			  	How to display the monthly links.
+ * 										Default is 'links', which is plain
+ * 										anchor elements. Use 'list' to output
+ * 										them as an ordered list.
+ * 		@type bool $full_names		  	Whether to show full or abbreviated
+ * 										("Jan") month names.Default true.
+ * 		@type bool|string $hide_empty 	Whether to hide archive links for
+ * 										months without any posts. Default true,
+ * 										though you could set it to false if
+ * 										you're concerned about the extra
+ * 										database call. Set to 'disabled' to
+ * 										show unlinked text for empty months.
  * }
  */
 function magic_hat_list_months( $args = array() ) {
@@ -556,22 +563,27 @@ function magic_hat_list_months( $args = array() ) {
 
 if ( ! function_exists( 'magic_hat_link_pages' ) ) :
 /**
- * Prints the pages for a single paginated post. Both the numbered page links and
- * next/previous links are shown. The next/previous links show a title or preview text
- * of the page they are linking to.
+ * Prints the pages for a single paginated post. Both the numbered page links
+ * and next/previous links are shown. The next/previous links show a title or
+ * preview text of the page they are linking to.
  *
  * @since 1.0.0
  *
  * @param array $args	{
  * 		Similar arguments array to {@see wp_link_pages}.
- * 		@type int $maxwords				Newly added: the max number of words to show in
- * 										a page preview title if the first element on that
- * 										page is not a heading element. Default is 8.
- * 		@type string $ariacurrent		What to use for the aria-current attribute. Default is
- * 										'page', also takes 'date', 'time', 'location', 'step'.
- * 		@type string $previouspagelink	Default is 'Next: %s' where %s is the page title.
- * 		@type string $nextpagelink		Default is 'Previous: %s' where %s is the page title.
- * 		@type string $pagelink			Default is '%s' where %s is the page number.
+ *
+ * 		@type int $maxwords	  			Newly added: the max number of words to
+ * 										show in a page preview title if the
+ * 										first element on that page is not a
+ * 										heading element. Default is 8.
+ * 		@type string $ariacurrent  		What to use for the aria-current
+ * 										attribute. Default is 'page', also takes
+ * 										'date', 'time', 'location','step'.
+ * 		@type string $previouspagelink	Default is 'Next: %s' where %s is the
+ * 										page title.
+ * 		@type string $nextpagelink		Default is 'Previous: %s' where %s is
+ * 										the page title.
+ * 		@type string $pagelink			Default is '%s' where %s is page number.
  * }
  */
 function magic_hat_link_pages( $args = array() ) {
