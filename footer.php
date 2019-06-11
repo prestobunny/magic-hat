@@ -1,12 +1,12 @@
 <?php
 /**
  * Site Footer
- * 
+ *
  * The template file that shows the site footer.
- * 
+ *
  * @todo Limit number of widgets allowed in the footer area?
  * @todo Move the inline js to external files or encode as CDATA
- * 
+ *
  * @package Magic Hat
  * @since 1.0.0
  */
@@ -19,7 +19,7 @@
 				<?php dynamic_sidebar( 'info' ); ?>
 			</div><!-- .info__widget -->
 			<div class="info__legal">
-				<?php magic_hat_customize_partial_copyright(); ?>
+				<?php if ( function_exists( 'magic_hat_customize_partial_copyright' ) ) magic_hat_customize_partial_copyright(); ?>
 
 				<?php if ( get_theme_mod( 'show-credits', true ) || is_customize_preview() ) {
 					magic_hat_theme_credit();
@@ -34,7 +34,7 @@
 							'menu_class' => 'nav__list nav__list-h',
 						) ); ?>
 					</nav><!-- #nav-footer -->
-				<?php } ?> 
+				<?php } ?>
 			</div><!-- .info__legal -->
 		</div><!-- .footer__info -->
 		<div class="footer__widget">

@@ -32,7 +32,7 @@ $magic_hat_description = get_bloginfo( 'description', 'display' );
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( $magic_hat_body_class ); ?> <?php magic_hat_custom_bg(); ?>>
+<body <?php body_class( $magic_hat_body_class ); ?> <?php if ( function_exists( 'magic_hat_custom_bg' ) ) magic_hat_custom_bg(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'magic-hat' ); ?></a>
 
